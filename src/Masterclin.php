@@ -1,25 +1,29 @@
 <?php
 
-require_once dirname(__FILE__) . '/Web.php';
+use GuzzleHttp\Client;
 
 /**
  * Description of Masterclin
  *
  * @author Usuário
  */
-class Masterclin extends Web {
+class Masterclin {
 
+    private $headers;
+    private $response;
     private $token;
     private $informacoesAdicionais;
 
     public function __construct() {
         parent::__construct();
+        $this->headers = array();
         $this->token = '';
         $this->headers['Accept'] = 'application/json';
         $this->headers['Content-Type'] = 'application/json';
         $this->informacoesAdicionais = array();
     }
-
+    
+    
     public function getToken() {
         return $this->token;
     }
@@ -29,6 +33,18 @@ class Masterclin extends Web {
         $this->headers['mc-api-key'] = $token;
         $this->getInformacoesAdicionais();
         return $this;
+    }
+    protected function configHeader($request) {
+        foreach ($this->headers as $key => $value) {
+            $request->setHeader($key, $value);
+
+        }
+    }
+    public function sendGet($url, $query = array()) {
+        $request = $client->createRequest('GET', $url);
+        $this->configHeader($request);
+        $this->response = $client->send($request);
+        print_r($this->response);
     }
 
     /*
