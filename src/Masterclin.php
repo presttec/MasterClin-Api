@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__) . '/WEB.php';
+require_once dirname(__FILE__) . '/Web.php';
 
 /**
  * Description of Masterclin
