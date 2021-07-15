@@ -40,10 +40,12 @@ class Masterclin {
         }
     }
     public function sendGet($url, $query = array()) {
+        $client = new Client();
         $request = $client->createRequest('GET', $url);
         $this->configHeader($request);
-        $this->response = $client->send($request);
-        print_r($this->response);
+        $response = $client->send($request);
+        $this->response = $response->getBody();
+        echo $this->response;
     }
 
     /*
