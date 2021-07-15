@@ -1,7 +1,7 @@
 <?php
 
 use GuzzleHttp\Client;
-
+use GuzzleHttp\Exception\ClientException
 /**
  * Description of Masterclin
  *
@@ -53,9 +53,7 @@ class Masterclin {
             'base_url' => ['https://cartaomasterclin.com.br/api/{version}/', ['version' => 'v1']],
             'defaults' => [
                 'headers' => $this->headers,
-                'query' => ['testing' => '123'],
-                'auth' => ['username', 'password'],
-                'proxy' => 'tcp://localhost:80'
+                'query' => $query,
             ]
         ]);
 //        $client->get($url, [
