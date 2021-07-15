@@ -60,8 +60,6 @@ class Beneficiario extends Dao {
         $this->clear();
         $this->data['cpf'] = $value;
         $tmpData = $this->web->list_beneficiarios(array('cpf' => $value));
-        print_r($tmpData);
-        die();
         if ($tmpData['total'] >= 1) {
             $this->processData($tmpData['dados'][0]);
         }
