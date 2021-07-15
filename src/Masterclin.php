@@ -42,9 +42,7 @@ class Masterclin {
 
 
     public function sendGet($url, $query = array()) {
-        $client = new Client([
-            'base_url' => ['https://cartaomasterclin.com.br/api/{version}/', ['version' => 'v1']],
-        ]);
+        $client = new Client();
 
         $res = $client->get($url, [
             'headers' => [
@@ -60,7 +58,7 @@ class Masterclin {
      */
 
     public function getInformacoesAdicionais() {
-        $url = 'informacoes-adicionais';
+        $url = 'https://cartaomasterclin.com.br/api/v1/informacoes-adicionais';
         return $this->sendGet($url);
     }
 
