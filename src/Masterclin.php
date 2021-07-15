@@ -1,7 +1,6 @@
 <?php
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\RequestException;
 
 /**
  * Description of Masterclin
@@ -51,17 +50,21 @@ class Masterclin {
 
     public function sendGet($url, $query = array()) {
         $client = new Client();
-        $request = $client->createRequest('GET', $url);
-        $this->configHeader($request);
-        try {
-            $response = $client->send($request);
-            echo $response->getBody();
-        } catch (RequestException $e) {
-            echo $e->getRequest() . "\n";
-            if ($e->hasResponse()) {
-                echo $e->getResponse() . "\n";
-            }
-        }
+        $client->get($url, [
+            'headers' => $this->headers,
+            'events' => [
+                'before' => function (BeforeEvent $e) {
+                    echo 'Before';
+                },
+                'complete' => function (CompleteEvent $e) {
+                    echo 'Complete';
+                },
+                'error' => function (ErrorEvent $e) {
+                    echo 'Error';
+                },
+            ]
+        ]);
+        $client->get($url);
     }
 
     /*
