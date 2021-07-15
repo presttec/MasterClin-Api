@@ -12,9 +12,9 @@ $masterclin->setToken('S0QsJJ5pXC1Se9REdKf1wl10sUGxsyEivfX9HobnJPlPT1DAm6rawC4gV
 $beneficiario = new Beneficiario();
 
 $beneficiario->setCpf('001.886.275-61');
-$beneficiario->setAtivo(TRUE);
-$beneficiario->setCartaoValidade('2022-04-09');
-$beneficiario->setNome('Nome do Beneficiário');
-$beneficiario->setTelefoneCelular('(00) 0000-0000');
-$beneficiario->setTelefoneResidencial('(00) 0000-0000');
+//$beneficiario->setAtivo(TRUE);
+//$beneficiario->setCartaoValidade('2022-04-09');
+//$beneficiario->setNome('Nome do Beneficiário');
+//$beneficiario->setTelefoneCelular('(00) 0000-0000');
+//$beneficiario->setTelefoneResidencial('(00) 0000-0000');
 
