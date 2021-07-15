@@ -36,7 +36,6 @@ class Masterclin {
     protected function configHeader($request) {
         foreach ($this->headers as $key => $value) {
             $request->setHeader($key, $value);
-
         }
     }
     public function sendGet($url, $query = array()) {
@@ -44,6 +43,7 @@ class Masterclin {
         $request = $client->createRequest('GET', $url);
         $this->configHeader($request);
         $response = $client->send($request);
+        echo $response->getStatusCode();
         $this->response = $response->getBody();
         echo $this->response;
     }
