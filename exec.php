@@ -7,7 +7,7 @@ require_once dirname(__FILE__) . '/src/Beneficiario.php';
 
 
 $masterclin = new Masterclin();
-$masterclin->setToken('S0QsJJ5pXC1Se9REdKf1wl10sUGxsyEivfX9HobnJPlPT1DAm6rawC4gV196EgK3JeYZ7fPxdlhPkY2Zz9HPKKefZ1iicjxxoObP');
+$masterclin->setToken('S0QsJJ5pXC1EdKf1wl10sUGxsyEivfX9HobnJPlPT1DAm6rawC4gV196EgK3JeYZ2Zz9HPKKefZ1iicjxxoObP');
 
 $beneficiario = new Beneficiario($masterclin);
 

@@ -2,7 +2,15 @@
     "name": "presttec/masterclin-api",
     "type": "library",
     "license": "MIT",
+    "authors": [
+        {
+            "name": "PrestTEC",
+            "email": "ramonaol.presttec@gmail.com"
+        }
+    ],
     "require": {
         "guzzlehttp/guzzle": "^6.5"
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
