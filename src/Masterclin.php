@@ -78,10 +78,7 @@ class Masterclin {
                 'mc-api-key' => $this->token,
             ]
         ]);
-        echo $res->getBody();
-        echo $res->getStatusCode();
-        // 'mc-api-key'] = $token
-        //$client->get($url);
+        return json_decode($res->getBody(), TRUE);
     }
 
     /*
