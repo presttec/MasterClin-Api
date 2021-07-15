@@ -71,14 +71,15 @@ class Masterclin {
 //                },
 //            ]
 //        ]);
-        $client->get($url, [
+        $res = $client->get($url, [
             'headers' => [
                 'User-Agent' => 'testing/1.0',
                 'Accept' => 'application/json',
                 'mc-api-key' => $this->token,
             ]
         ]);
-        echo $this->token;
+        echo $res->getBody();
+        echo $res->getStatusCode();
         // 'mc-api-key'] = $token
         //$client->get($url);
     }
