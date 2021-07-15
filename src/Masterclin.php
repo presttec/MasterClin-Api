@@ -49,21 +49,29 @@ class Masterclin {
     }
 
     public function sendGet($url, $query = array()) {
-        $client = new Client();
-        $client->get($url, [
-            'headers' => $this->headers,
-            'events' => [
-                'before' => function (BeforeEvent $e) {
-                    echo 'Before';
-                },
-                'complete' => function (CompleteEvent $e) {
-                    echo 'Complete';
-                },
-                'error' => function (ErrorEvent $e) {
-                    echo 'Error';
-                },
+        $client = new Client([
+            'base_url' => ['https://cartaomasterclin.com.br/api/{version}/', ['version' => 'v1']],
+            'defaults' => [
+                'headers' => $this->headers,
+                'query' => ['testing' => '123'],
+                'auth' => ['username', 'password'],
+                'proxy' => 'tcp://localhost:80'
             ]
         ]);
+//        $client->get($url, [
+//            'headers' => $this->headers,
+//            'events' => [
+//                'before' => function (BeforeEvent $e) {
+//                    echo 'Before';
+//                },
+//                'complete' => function (CompleteEvent $e) {
+//                    echo 'Complete';
+//                },
+//                'error' => function (ErrorEvent $e) {
+//                    echo 'Error';
+//                },
+//            ]
+//        ]);
         $client->get($url);
     }
 
