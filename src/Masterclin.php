@@ -49,11 +49,12 @@ class Masterclin {
     }
 
     public function sendGet($url, $query = array()) {
-        $client = new Client();
-        $client->get($url, [
-            'headers' => $this->headers,
+        $request = $client->createRequest('GET', $url, [
+            'headers' => $this->headers
         ]);
-        $client->get($url);
+        $response = $client->send($request);
+        echo $response->getBody();
+
     }
 
     /*
