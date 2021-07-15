@@ -51,9 +51,8 @@ class Masterclin {
 
     public function sendGet($url, $query = array()) {
         $client = new Client();
-        $request = $client->createRequest('GET', $url, [
-            'headers' => $this->headers
-        ]);
+        $request = $client->createRequest('GET', $url);
+        $this->configHeader($request);
         try {
             $response = $client->send($request);
             echo $response->getBody();
