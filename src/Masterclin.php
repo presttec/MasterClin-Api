@@ -10,12 +10,14 @@ require_once dirname(__FILE__) . '/WEB.php';
 class Masterclin extends Web {
 
     private $token;
+    private $informacoesAdicionais;
 
     public function __construct() {
         parent::__construct();
         $this->token = '';
         $this->headers['Accept'] = 'application/json';
         $this->headers['Content-Type'] = 'application/json';
+        $this->informacoesAdicionais = array();
     }
 
     public function getToken() {
@@ -25,6 +27,7 @@ class Masterclin extends Web {
     public function setToken($token) {
         $this->token = $token;
         $this->headers['mc-api-key'] = $token;
+        $this->informacoes_adicionais();
         return $this;
     }
 
@@ -32,9 +35,14 @@ class Masterclin extends Web {
       Retorna listagem de informações adicionais do beneficiário de acordo com cliente.
      */
 
-    public function informacoes_adicionais() {
+    public function getInformacoesAdicionais() {
         $url = 'https://cartaomasterclin.com.br/api/v1/informacoes-adicionais';
         return $this->sendGet($url);
+    }
+
+    public function setInformacoesAdicionais($informacoesAdicionais) {
+        $this->informacoesAdicionais = $informacoesAdicionais;
+        return $this;
     }
 
 }
