@@ -38,9 +38,9 @@ class Masterclin {
             $request->setHeader($key, $value);
         }
     }
+
     public function initClient($url, $query) {
         return new Client([
-            'base_url' => ['https://cartaomasterclin.com.br/api/{version}/', ['version' => 'v1']],
             'defaults' => [
                 'headers' => $this->headers,
                 'query' => $query,
@@ -49,7 +49,10 @@ class Masterclin {
     }
 
     public function sendGet($url, $query = array()) {
-        $client = $this->initClient($url, $query);
+        $client = new Client();
+        $client->get($url, [
+            'headers' => $this->headers,
+        ]);
         $client->get($url);
     }
 
@@ -58,7 +61,7 @@ class Masterclin {
      */
 
     public function getInformacoesAdicionais() {
-        $url = '/informacoes-adicionais';
+        $url = 'https://cartaomasterclin.com.br/api/v1/informacoes-adicionais';
         return $this->sendGet($url);
     }
 
