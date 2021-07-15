@@ -27,7 +27,7 @@ class Masterclin extends Web {
     public function setToken($token) {
         $this->token = $token;
         $this->headers['mc-api-key'] = $token;
-        $this->informacoes_adicionais();
+        $this->getInformacoesAdicionais();
         return $this;
     }
 
