@@ -17,7 +17,7 @@ class Beneficiario extends Dao {
     public function __construct($client) {
         parent::__construct($client);
         $this->clear();
-        $this->informacoesAdicionais = $client->get
+        $this->informacoesAdicionais = $client->getInformacoesAdicionais();
     }
 
     public function clear() {
