@@ -21,8 +21,7 @@ class Masterclin {
         $this->headers['Content-Type'] = 'application/json';
         $this->informacoesAdicionais = array();
     }
-    
-    
+
     public function getToken() {
         return $this->token;
     }
@@ -33,19 +32,25 @@ class Masterclin {
         $this->getInformacoesAdicionais();
         return $this;
     }
+
     protected function configHeader($request) {
         foreach ($this->headers as $key => $value) {
             $request->setHeader($key, $value);
         }
     }
+    public function initClient($url, $query) {
+        return new Client([
+            'base_url' => ['https://cartaomasterclin.com.br/api/{version}/', ['version' => 'v1']],
+            'defaults' => [
+                'headers' => $this->headers,
+                'query' => $query,
+            ]
+        ]);
+    }
+
     public function sendGet($url, $query = array()) {
-        $client = new Client();
-        $request = $client->createRequest('GET', $url);
-        $this->configHeader($request);
-        $response = $client->send($request);
-        echo $response->getStatusCode();
-        $this->response = $response->getBody();
-        echo $this->response;
+        $client = $this->initClient($url, $query);
+        $client->get($url);
     }
 
     /*
@@ -53,7 +58,7 @@ class Masterclin {
      */
 
     public function getInformacoesAdicionais() {
-        $url = 'https://cartaomasterclin.com.br/api/v1/informacoes-adicionais';
+        $url = '/informacoes-adicionais';
         return $this->sendGet($url);
     }
 
