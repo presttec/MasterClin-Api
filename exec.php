@@ -12,6 +12,7 @@ $masterclin->setToken('S0QsJJ5pXC1Se9REdKf1wl10sUGxsyEivfX9HobnJPlPT1DAm6rawC4gV
 $beneficiario = new Beneficiario($masterclin);
 
 $beneficiario->setCpf('001.886.275-61');
+print_r($beneficiario->getData());
 //$beneficiario->setAtivo(TRUE);
 //$beneficiario->setCartaoValidade('2022-04-09');
 //$beneficiario->setNome('Nome do Beneficiário');
