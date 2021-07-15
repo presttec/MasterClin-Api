@@ -10,13 +10,14 @@ require_once dirname(__FILE__) . '/Dao.php';
 class Beneficiario extends Dao {
 
     private $id;
-    private $informacoes_adicionais;
+    private $informacoesAdicionais;
     private $codigoCliente;
     private $codigoTitular;
 
     public function __construct($client) {
         parent::__construct($client);
         $this->clear();
+        $this->informacoesAdicionais = $client->get
     }
 
     public function clear() {
@@ -38,20 +39,21 @@ class Beneficiario extends Dao {
     }
 
     public function clearInformacoesAdicionais() {
-		$this->informacoes_adicionais = array();
-	}
-    public function dataInformacoesAdicionais($id, $value) {
-		$info['id']  = $id;
-		$info['valor']  = $value;
-		$this->informacoes_adicionais[] = $info;
-    
+        $this->informacoesAdicionais = array();
     }
+
+    public function dataInformacoesAdicionais($id, $value) {
+        $info['id'] = $id;
+        $info['valor'] = $value;
+        $this->informacoesAdicionais[] = $info;
+    }
+
     public function setInformacoesAdicionais($value) {
-        $this->informacoes_adicionais = $value;
+        $this->informacoesAdicionais = $value;
     }
 
     public function getInformacoesAdicionais() {
-        return $this->informacoes_adicionais;
+        return $this->informacoesAdicionais;
     }
 
     public function setCpf($value) {
