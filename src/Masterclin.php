@@ -1,7 +1,7 @@
 <?php
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\ClientException
+use GuzzleHttp\Exception\ClientException;
 /**
  * Description of Masterclin
  *
