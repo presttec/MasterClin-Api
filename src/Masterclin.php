@@ -15,7 +15,6 @@ class Masterclin {
     private $informacoesAdicionais;
 
     public function __construct() {
-        parent::__construct();
         $this->headers = array();
         $this->token = '';
         $this->headers['Accept'] = 'application/json';
