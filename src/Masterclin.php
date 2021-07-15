@@ -2,6 +2,7 @@
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
+
 /**
  * Description of Masterclin
  *
@@ -70,7 +71,16 @@ class Masterclin {
 //                },
 //            ]
 //        ]);
-        $client->get($url);
+        $client->get($url, [
+            'headers' => [
+                'User-Agent' => 'testing/1.0',
+                'Accept' => 'application/json',
+                'mc-api-key' => $this->token,
+            ]
+        ]);
+        echo $this->token;
+        // 'mc-api-key'] = $token
+        //$client->get($url);
     }
 
     /*
